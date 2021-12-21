@@ -1,0 +1,13 @@
+vertical(seg(point(X,Y),point(X,Y1))).
+horizontal(seg(point(X,Y),point(X1,Y))).
+%定义判定是否是长方形的规则
+regular(rectangle(P1,P2,P3,P4)):-
+       vertical(seg(P1,P2)),
+       vertical(seg(P3,P4)),
+       horizontal(seg(P1,P4)),
+       horizontal(seg(P2,P3)).
+regular(rectangle(P1,P2,P3,P4)):-
+       horizontal(seg(P1,P2)),
+       horizontal(seg(P3,P4)),
+       vertical(seg(P1,P4)),
+       vertical(seg(P2,P3)).
