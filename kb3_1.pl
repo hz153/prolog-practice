@@ -29,4 +29,14 @@ del(X, L1, L).
 sublist(S, L):-
 conc(_, L2, L),
 conc(S, _, L2).
-% 排列表，相当于确定
+% 排列表，相当于拿出顶部的元素，然后把剩余的排列完再以此插入
+permutation([], []).
+permutation([X|L], P):-
+permutation(L, L1),
+insert(X, L1, P).
+% 另一种想法是现决定顶部元素在排列中的位置，然后将剩余的再进行排列
+permutation2([], []).
+permutation2(P, [X|L]):-
+del(X, P, P1),
+permutation2(P1, L).
+
