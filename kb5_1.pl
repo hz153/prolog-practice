@@ -51,5 +51,4 @@ class(X, winner):-
 beat(X, _), !.
 class(X, sportsman):-
 beat(_, X).
-6 =< X, !.
 
